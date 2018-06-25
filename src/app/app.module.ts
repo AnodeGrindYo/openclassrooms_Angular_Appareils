@@ -15,10 +15,12 @@ import { AuthService } from "./services/auth.service"; // service d'authentifica
 
 // création de routes
 import { RouterModule, Routes } from "@angular/router";
+import { SingleAppareilComponent } from './single-appareil/single-appareil.component';
 
 // contient la liste des routes
 const appRoutes: Routes = [
   { path: 'appareils', component: AppareilViewComponent },
+  { path: 'appareils/:id', component: SingleAppareilComponent},
   { path: 'auth', component: AuthComponent },
   { path: '', component: AppareilViewComponent}
 ];
@@ -29,7 +31,8 @@ const appRoutes: Routes = [
     MonPremierComponentComponent,
     AppareilComponent,
     AuthComponent,
-    AppareilViewComponent
+    AppareilViewComponent,
+    SingleAppareilComponent
   ],
   imports: [
     BrowserModule,
