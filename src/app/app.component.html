@@ -1,4 +1,5 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<div id="whole-page">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
   <div class="container-fluid">
     <div class="list-group">
       <ul class="nav navbar-nav">
@@ -8,6 +9,9 @@
           </li>
           <li class="col-xs-3 nav-btn">
             <a class="btn btn-dark"  routerLink="appareils" role="button"  routerLinkActive="active">Appareils</a>
+          </li>
+          <li class="col-xs-3 nav-btn">
+            <a class="btn btn-dark"  routerLink="edit" role="button"  routerLinkActive="active">Nouvel Appareil</a>
           </li>
         </div>
         <!-- en remplaçant href par routerLink, c'est seulement le contenu de router-outlet qui est remplacé -->
@@ -19,9 +23,9 @@
   </div>
 </nav>
 
-<div class="container">
-  <div class="row">
+<div class="container-fluid">
     <!-- <app-appareil-view></app-appareil-view> -->
     <router-outlet></router-outlet>
-  </div>
+
+</div>
 </div>

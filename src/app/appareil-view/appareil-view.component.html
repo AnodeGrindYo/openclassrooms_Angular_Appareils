@@ -1,9 +1,11 @@
 <div class="col-xs-12">
-    <h2>Mes appareils</h2>
+    <div class="jumbotron bg-dark">
+      <h2 class="text-center display-1">Mes appareils</h2>     
+    </div>
 
     <p>Mis à jour : {{ lastUpdate | async | date: 'EEEE d MMMM y' | uppercase }}</p>
 
-    <ul class="list-group">
+    <ul class="list-group col-sm-8 offset-2">
     		<!-- la directive *ngFor itère chaque élément du tableau appareils (attribut de la classe AppComponent) -->
     	<app-appareil 
     		*ngFor="let unAppareil of appareils; let i = index" 
@@ -15,9 +17,11 @@
     </ul>
       <!-- pour lier à une propriété, on utilise les crochets, c'est le PROPERTY BINDING
       	et pour lier à un événement on utilise les parenthèses -->
+  <div class="btn-group col-xs-8 offset-2">
     <button class="btn btn-success" 
       	[disabled]="!isAuth" 
       	(click)="onAllumer()">Tout allumer</button>
     <button class="btn btn-danger" 
-    	(click)="onEteindre()">Tout éteindre</button>
+    	(click)="onEteindre()">Tout éteindre</button>   
+  </div>
 </div>

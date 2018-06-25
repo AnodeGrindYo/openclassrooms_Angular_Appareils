@@ -18,6 +18,7 @@ import { AuthGuard } from "./services/auth-guard-service";
 
 // création de routes
 import { RouterModule, Routes } from "@angular/router";
+import { EditAppareilComponent } from './edit-appareil/edit-appareil.component';
 
 
 // contient la liste des routes
@@ -26,6 +27,7 @@ import { RouterModule, Routes } from "@angular/router";
 const appRoutes: Routes = [
   { path: 'appareils',     canActivate:[AuthGuard], component: AppareilViewComponent },
   { path: 'appareils/:id', canActivate:[AuthGuard], component: SingleAppareilComponent },
+  { path: 'edit',          canActivate:[AuthGuard], component: EditAppareilComponent},
   { path: 'auth',          component: AuthComponent },
   { path: '',              canActivate:[AuthGuard], component: AppareilViewComponent },
   { path: 'not-found',     component: FourOFourComponent }, 
@@ -40,7 +42,8 @@ const appRoutes: Routes = [
     AuthComponent,
     AppareilViewComponent,
     SingleAppareilComponent,
-    FourOFourComponent
+    FourOFourComponent,
+    EditAppareilComponent
   ],
   imports: [
     BrowserModule,

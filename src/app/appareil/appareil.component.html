@@ -13,7 +13,7 @@
 		*ngIf="appareilStatus === 'allumé'">
 	</div>
 
-	<h4 [ngStyle]="{color: getColor()}">Appareil : {{ appareilName }} -- Statut : {{ getStatus() }}</h4>
+	<h4 [ngStyle]="{color: getColor()}">Appareil : {{ appareilName }} <span  class="float-right">-- Statut : {{ getStatus() }}</span></h4>
 	<!-- [(ngModel)]="appareilName" est un two ways binding. Il y a des crochets et des parenthèses parce que c'est lié à la fois à  une propriété et à un événement-->
 
 	<input type="text" class="form-control" [(ngModel)]="appareilName">
