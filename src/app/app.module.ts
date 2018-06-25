@@ -14,6 +14,7 @@ import { FourOFourComponent } from './four-o-four/four-o-four.component';
 // services
 import { AppareilService } from "./services/appareil.service"; // fournit les méthodes switchOnAll/switchOffAll/switchOnOne/switchOffOne
 import { AuthService } from "./services/auth.service"; // service d'authentification de l'utilisateur
+import { AuthGuard } from "./services/auth-guard-service";
 
 // création de routes
 import { RouterModule, Routes } from "@angular/router";
@@ -21,11 +22,12 @@ import { RouterModule, Routes } from "@angular/router";
 
 // contient la liste des routes
 // note: il faut toujours mettre le path avec la wildcard à la fin
+// canActivate:[AuthGuard] fait référence au service AuthGuard et interdit l'accès au path si l'user n'est pas connecté
 const appRoutes: Routes = [
-  { path: 'appareils',     component: AppareilViewComponent },
-  { path: 'appareils/:id', component: SingleAppareilComponent },
+  { path: 'appareils',     canActivate:[AuthGuard], component: AppareilViewComponent },
+  { path: 'appareils/:id', canActivate:[AuthGuard], component: SingleAppareilComponent },
   { path: 'auth',          component: AuthComponent },
-  { path: '',              component: AppareilViewComponent },
+  { path: '',              canActivate:[AuthGuard], component: AppareilViewComponent },
   { path: 'not-found',     component: FourOFourComponent }, 
   { path: '**',            redirectTo: '/not-found' }
 ];
@@ -47,7 +49,8 @@ const appRoutes: Routes = [
   ],
   providers: [
     AppareilService,
-    AuthService
+    AuthService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })
