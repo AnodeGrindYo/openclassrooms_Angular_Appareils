@@ -7,10 +7,9 @@ import { AppareilService } from "../services/appareil.service";
 	styleUrls: ['./appareil-view.component.scss']
 })
 export class AppareilViewComponent implements OnInit {
-	
+
 	isAuth = false;
 
-	author='Adrien';
 
 	// yo, c'est comme ça qu'on fait une promesse en JS
 	lastUpdate = new Promise(
