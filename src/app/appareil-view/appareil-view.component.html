@@ -9,7 +9,8 @@
     		*ngFor="let unAppareil of appareils; let i = index" 
     		[indexOfAppareil]="i"
     		[appareilName]="unAppareil.name"
-    		[appareilStatus]="unAppareil.status">
+    		[appareilStatus]="unAppareil.status"
+    		[id]="unAppareil.id">
     	</app-appareil>
     </ul>
       <!-- pour lier à une propriété, on utilise les crochets, c'est le PROPERTY BINDING

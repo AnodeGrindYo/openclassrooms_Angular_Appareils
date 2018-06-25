@@ -1,6 +1,7 @@
 <li [ngClass]="{'list-group-item': true, 
 				'list-group-item-success': appareilStatus === 'allumé',
 				'list-group-item-danger': appareilStatus === 'éteint'}">
+
 	
 	<!-- la directive ngIf permet de faire apparaître ou non la div selon si appareilStatus est éteint ou non -->
 	<div 
@@ -18,6 +19,8 @@
 	<input type="text" class="form-control" [(ngModel)]="appareilName">
 	
 	<div class="btn-group">
+		<!-- lien vers le détail de l'appareil -->
+		<a class="btn btn-dark" [routerLink]="[id]">Détails</a>
 		<button class="btn btn-success" (click)="onSwitchOn()" [disabled]="appareilStatus === 'allumé'">Allumer</button>
 		<button class="btn btn-danger" (click)="onSwitchOff()" [disabled]="appareilStatus === 'éteint'">Eteindre</button>
 	</div>
