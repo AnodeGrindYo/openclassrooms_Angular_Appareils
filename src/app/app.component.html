@@ -9,11 +9,13 @@
           <li class="col-xs-3 nav-btn">
             <a class="btn btn-dark"  routerLink="appareils" role="button"  routerLinkActive="active">Appareils</a>
           </li>
-          
         </div>
         <!-- en remplaçant href par routerLink, c'est seulement le contenu de router-outlet qui est remplacé -->
       </ul>
-  </div>
+    </div>
+    <div class="navbar-right">
+      <p>Vous êtes connecté depuis {{ secondes }} secondes</p>  
+    </div>
   </div>
 </nav>
 
