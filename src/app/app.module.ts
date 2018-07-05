@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // components
 import { AppComponent } from './app.component';
@@ -15,10 +15,12 @@ import { FourOFourComponent } from './four-o-four/four-o-four.component';
 import { AppareilService } from "./services/appareil.service"; // fournit les méthodes switchOnAll/switchOffAll/switchOnOne/switchOffOne
 import { AuthService } from "./services/auth.service"; // service d'authentification de l'utilisateur
 import { AuthGuard } from "./services/auth-guard-service";
+import { UserService } from "./services/user.service";
 
 // création de routes
 import { RouterModule, Routes } from "@angular/router";
 import { EditAppareilComponent } from './edit-appareil/edit-appareil.component';
+import { UserListComponent } from './user-list/user-list.component';
 
 
 // contient la liste des routes
@@ -29,6 +31,7 @@ const appRoutes: Routes = [
   { path: 'appareils/:id', canActivate:[AuthGuard], component: SingleAppareilComponent },
   { path: 'edit',          canActivate:[AuthGuard], component: EditAppareilComponent},
   { path: 'auth',          component: AuthComponent },
+  { path: 'users',         component: UserListComponent},
   { path: '',              canActivate:[AuthGuard], component: AppareilViewComponent },
   { path: 'not-found',     component: FourOFourComponent }, 
   { path: '**',            redirectTo: '/not-found' }
@@ -43,17 +46,20 @@ const appRoutes: Routes = [
     AppareilViewComponent,
     SingleAppareilComponent,
     FourOFourComponent,
-    EditAppareilComponent
+    EditAppareilComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(appRoutes) // import des routes
   ],
   providers: [
     AppareilService,
     AuthService,
-    AuthGuard
+    AuthGuard,
+    UserService
   ],
   bootstrap: [AppComponent]
 })

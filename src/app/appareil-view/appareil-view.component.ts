@@ -46,9 +46,9 @@ export class AppareilViewComponent implements OnInit {
       // next:
       (appareils: any[]) => {
         this.appareils = appareils;
-      };
+      });
       this.appareilService.emitAppareilSubject();
-    );
+    
   }
 
   // appel de la méthode switchOnAll du service AppareilService
