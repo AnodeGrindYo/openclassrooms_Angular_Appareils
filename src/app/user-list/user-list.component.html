@@ -1,12 +1,24 @@
+<a routerLink="/new-user">Nouvel utilisateur</a>
+<!-- list de user. chaque user est un list item (classe bootstrap) -->
 <ul class="list-group">
+
+	<!-- utilisateur -->
 	<li class="list-group-item  bg-dark" *ngFor="let user of users">
+		
+		<!-- nom et prénom -->
 		<h3>{{ user.firstName }} {{ user.lastName }}</h3>
+
+		<!-- adresse email -->
 		<p>{{ user.email }}</p>
-		<p>Boisson préférée {{ user.drinkPreference }}</p>
+
+		<!-- boisson préfére -->
+		<p>Boisson préférée : {{ user.drinkPreference }}</p>
+
+		<!--- hobbies -->
 		<p *ngIf="user.hobbies && user.hobbies.length > 0">
 			Hobbies : 
 			<span *ngFor="let hobby of user.hobbies; let isLast=last">
-			 {{ hobby }}{{isLast? '': ', '}}
+			 {{ hobby }}{{isLast? '': ', '}} <!-- a condition ternaire avec isLast permet de rajouter une virgule entre les hobbies, mais n'en rajoute pas si le hobbie est les dernier de la liste des hobbies -->
 			</span>
 		</p>
 	</li>

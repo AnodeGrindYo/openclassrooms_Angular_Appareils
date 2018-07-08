@@ -21,6 +21,7 @@ import { UserService } from "./services/user.service";
 import { RouterModule, Routes } from "@angular/router";
 import { EditAppareilComponent } from './edit-appareil/edit-appareil.component';
 import { UserListComponent } from './user-list/user-list.component';
+import { NewUserComponent } from './new-user/new-user.component';
 
 
 // contient la liste des routes
@@ -32,6 +33,7 @@ const appRoutes: Routes = [
   { path: 'edit',          canActivate:[AuthGuard], component: EditAppareilComponent},
   { path: 'auth',          component: AuthComponent },
   { path: 'users',         component: UserListComponent},
+  { path: 'new-user', component: NewUserComponent},
   { path: '',              canActivate:[AuthGuard], component: AppareilViewComponent },
   { path: 'not-found',     component: FourOFourComponent }, 
   { path: '**',            redirectTo: '/not-found' }
@@ -47,7 +49,8 @@ const appRoutes: Routes = [
     SingleAppareilComponent,
     FourOFourComponent,
     EditAppareilComponent,
-    UserListComponent
+    UserListComponent,
+    NewUserComponent
   ],
   imports: [
     BrowserModule,

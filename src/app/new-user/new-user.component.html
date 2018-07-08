@@ -1,0 +1,21 @@
+<div class="col-sm-8 offset-2">
+	<form [formGroup]="userForm" (ngSubmit)="onSubmitForm()">
+		<div class="form-group">
+			<label for="firstName">Prénom</label>
+			<!--formControlName doit correspondre aux form controls déclarés dans initForm() -->
+			<input class="form-control" type="text" id="firstName" formControlName="firstName" />
+			<label for="lastName">Nom</label>
+			<input class="form-control" type="text" id="lastName" formControlName="lastName" />
+			<label for="email">Adresse email</label>
+			<input class="form-control" type="email" id="email" formControlName="email" />
+			<div class="form-group">
+				<label for="drinkPreference">Quelle boisson préférez-vous ?</label>
+				<select id="drinkPreference" class="form-control" formControlName="drinkPreference">
+					<option value="Coca">Coca</option>
+					<option value="Pepsi">Pepsi</option>
+				</select>
+			</div>
+		</div>
+		<button class="btn btn-primary" type="submit" [disabled]="userForm.invalid">Soumettre</button>
+	</form>
+</div>
