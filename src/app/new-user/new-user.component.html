@@ -15,6 +15,17 @@
 					<option value="Pepsi">Pepsi</option>
 				</select>
 			</div>
+			<div formArrayName="hobbies">
+				<h3>Vos hobbies</h3>
+				<!-- getHobbies retourne le FormArray et controls accède à l'array des controls dans le FormArray 
+					chaque control à l'intérieur de ce FormArray doit avoir un ormControlName différent
+				-->
+				<div class="form-group" *ngFor="let hobbyControl of getHobbies().controls; let i = index">
+					<!-- ici, on met des crochets autour de formControlName car i est une variable -->
+					<input type="text" class="form-control" [formControlName]="i">
+				</div>
+				<button type="button" class="btn btn-success" (click)="onAddHobby()">Ajouter un hobbie</button>
+			</div>
 		</div>
 		<button class="btn btn-primary" type="submit" [disabled]="userForm.invalid">Soumettre</button>
 	</form>
